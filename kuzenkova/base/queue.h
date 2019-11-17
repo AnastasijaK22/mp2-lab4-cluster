@@ -1,7 +1,7 @@
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
 
-const int MaxSize = 100;
+const int MaxQueueSize = 100;
 
 template <class T>
 class TQueue
@@ -18,15 +18,15 @@ public:
 		size = _size;
 		top = -1;
 		count = 0;
-		if ((size < 1) || (size > MaxSize))
+		if ((size < 1) || (size > MaxQueueSize))
 			throw "Error";
 		pMem = new T[size];
 	}
-	bool empty()
+	bool empty() const
 	{
 		return count == 0;
 	}
-	bool full()
+	bool full() const
 	{
 		return count == size;
 	}
@@ -38,12 +38,20 @@ public:
 		count++;
 		pMem[top] = val;
 	}
+	int countQueue() const
+	{
+		return count;
+	}
 	T pop()
 	{
 		if (empty())
 			throw "Error";
 		count--;
 		return pMem[(size + top - count) % size];
+	}
+	T getBottom() const
+	{
+		return pMem[(size + 1 + top - count) % size];
 	}
 	~TQueue()
 	{

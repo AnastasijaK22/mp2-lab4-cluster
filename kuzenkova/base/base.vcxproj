@@ -19,10 +19,14 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="cluster.h" />
     <ClInclude Include="queue.h" />
+    <ClInclude Include="tasks.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="cluster.cpp" />
     <ClCompile Include="sample_claster.cpp" />
+    <ClCompile Include="tasks.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

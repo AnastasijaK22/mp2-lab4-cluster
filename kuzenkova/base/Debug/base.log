@@ -1,2 +1,5 @@
 ﻿  sample_claster.cpp
-  base.vcxproj -> C:\Users\User\source\repos\claster\Debug\base.exe
+d:\мой репозиторий\mp2-lab4-cluster\kuzenkova\base\sample_claster.cpp(9): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  tasks.cpp
+  Создание кода...
+  base.vcxproj -> D:\Мой репозиторий\mp2-lab4-cluster\kuzenkova\Debug\base.exe
