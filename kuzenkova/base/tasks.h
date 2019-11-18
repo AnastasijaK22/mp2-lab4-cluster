@@ -15,7 +15,7 @@ class Task
 public:
 	Task()
 	{
-		Ptask = 0;
+		Ptask = 1;
 		Ttask = 1 + rand() % MaxTime;
 		runTime = 0;
 	}
@@ -25,7 +25,7 @@ public:
 	}
 	bool isPerformed() const
 	{
-		return Ttask == runTime;
+		return (Ttask - runTime) <= 0;
 	}
 	bool operator<(const Task &t)
 	{
@@ -35,6 +35,8 @@ public:
 	}
 	void setProcessors(int processor_interval)
 	{
+		if (processor_interval < 1)
+			throw "Error";
 		Ptask = 1 + rand() % processor_interval;
 	}
 	int countProcessors() const
@@ -67,7 +69,7 @@ public:
 	void AddNewTask(const Task &t);
 	int DeletePerformedTask();
 	void performe();
-	int countTasks()
+	int countTasks() const
 	{
 		return size;
 	}

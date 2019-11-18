@@ -26,21 +26,27 @@ public:
 	}
 	void addPerformed(int tasks)
 	{
+		if (tasks < 0)
+			throw "Error";
 		countPerformedTasks += tasks;
 	}
 	void inQueue(int tasks)
 	{
+		if (tasks < 0)
+			throw "Error";
 		countQueueTasks = tasks;
 	}
 	void congestion(double x)
 	{
+		if (x < 0)
+			throw "Error";
 		averageLoad += x;
 	}
 	void countTacts(int t)
 	{
 		tact += t;
 	}
-	void print()
+	void print() const
 	{
 		std::cout << "Completed tasks: " << countPerformedTasks << std::endl;
 		std::cout << "Created Tasks: " << createdTasks << std::endl;
@@ -60,6 +66,8 @@ class cluster
 public:
 	cluster(int pr):q(MaxQueueSize)
 	{
+		if (pr < 1)
+			throw "Error";
 		processors = pr;
 		freeProcessors = pr;
 	}

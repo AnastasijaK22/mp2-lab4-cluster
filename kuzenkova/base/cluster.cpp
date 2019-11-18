@@ -2,6 +2,8 @@
 
 void cluster::doTacts(int tacts)
 {
+	if (tacts < 1)
+		throw "Error";
 	for (int i = 0; i < tacts; i++)
 	{
 		if (rand() % 100 > rand() % 100)

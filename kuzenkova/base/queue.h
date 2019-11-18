@@ -1,7 +1,7 @@
 #ifndef __QUEUE_H__
 #define __QUEUE_H__
 
-const int MaxQueueSize = 100;
+const int MaxQueueSize = 1000;
 
 template <class T>
 class TQueue

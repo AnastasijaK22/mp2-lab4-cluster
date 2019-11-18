@@ -34,7 +34,8 @@ void listTask::AddNewTask(const Task &t)
 int listTask::DeletePerformedTask()
 {
 	int k = 0;
-	for (int i = 0; i < size; i++)
+	int s = size;
+	for (int i = 0; i < s; i++)
 	{
 		Link *p = pFirst;
 		if (!(p->data.isPerformed()))
