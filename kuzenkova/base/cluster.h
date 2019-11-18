@@ -3,17 +3,50 @@
 
 #include "queue.h"
 #include "tasks.h"
+#include <iostream>
 
 class statistics
 {
+	int createdTasks;
 	int countPerformedTasks;
 	int countQueueTasks;
-	//double averageLoad;
+	double averageLoad;
+	int tact;
 public:
 	statistics()
 	{
+		countQueueTasks = 0;
 		countPerformedTasks = 0;
-		countPerformedTasks = 0;
+		createdTasks = 0;
+		tact = 0;
+	}
+	void create()
+	{
+		createdTasks++;
+	}
+	void addPerformed(int tasks)
+	{
+		countPerformedTasks += tasks;
+	}
+	void inQueue(int tasks)
+	{
+		countQueueTasks = tasks;
+	}
+	void congestion(double x)
+	{
+		averageLoad += x;
+	}
+	void countTacts(int t)
+	{
+		tact += t;
+	}
+	void print()
+	{
+		std::cout << "Completed tasks: " << countPerformedTasks << std::endl;
+		std::cout << "Created Tasks: " << createdTasks << std::endl;
+		std::cout << "Tasks in line: " << countQueueTasks << std::endl;
+		if (tact != 0)
+			std::cout << "Average Load: " << averageLoad/tact <<std::endl;
 	}
 };
 
@@ -24,12 +57,16 @@ class cluster
 	listTask performeTasks;
 	statistics stat;
 	TQueue <Task> q;
-private:
+public:
 	cluster(int pr):q(MaxQueueSize)
 	{
 		processors = pr;
 		freeProcessors = pr;
 	}
 	void doTacts(int tacts);
+	void printStatistic()
+	{
+		stat.print();
+	}
 };
 #endif

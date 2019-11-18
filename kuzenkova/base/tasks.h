@@ -5,7 +5,7 @@
 #include <stdlib.h>
 //#include <iostream>
 
-int const MaxTime = 100;
+int const MaxTime = 20;
 
 class Task
 {

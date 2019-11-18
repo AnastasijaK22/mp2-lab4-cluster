@@ -125,8 +125,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\base\tasks.cpp" />
     <ClCompile Include="test_main.cpp" />
     <ClCompile Include="test_queue.cpp" />
+    <ClCompile Include="test_tasks.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

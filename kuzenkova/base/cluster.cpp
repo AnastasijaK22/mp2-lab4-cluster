@@ -9,17 +9,27 @@ void cluster::doTacts(int tacts)
 			Task temp;
 			temp.setProcessors(processors);
 			q.push(temp);
+			stat.create();
 		}
-		while ((!q.empty()) && (freeProcessors > 0))
+		while ((!q.empty()))
 		{
 			Task temp = q.getBottom();
-			if (temp.countProcessors <= freeProcessors)
+			if (temp.countProcessors() <= freeProcessors)
 			{
 				performeTasks.AddNewTask(temp);
 				q.pop();
-				freeProcessors -= temp.countProcessors;
+				freeProcessors -= temp.countProcessors();
 			}
+			else
+				break;
 		}
-
+		performeTasks.performe();
+		int temp = performeTasks.countTasks();
+		freeProcessors += performeTasks.DeletePerformedTask();
+		temp -= performeTasks.countTasks();
+		stat.addPerformed(temp);
+		stat.inQueue(q.countQueue());
+		stat.congestion(100*(processors - freeProcessors) / processors);
 	}
+	stat.countTacts(tacts);
 }
