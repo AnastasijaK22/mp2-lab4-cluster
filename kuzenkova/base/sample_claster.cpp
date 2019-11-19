@@ -9,10 +9,20 @@ int main()
 {
 	srand(time(NULL));
 	int a;
-	cluster b(60);
-	b.doTacts(10);
-	b.printStatistic();
-	b.doTacts(5);
-	b.printStatistic();
+	int processors;
+	int tact;
+	try {
+		cout << "Enter the number of processors: ";
+		cin >> processors;
+		cluster b(processors);
+		cout << "Enter the number of tact: ";
+		cin >> tact;
+		b.doTacts(tact);
+		b.printStatistic();
+	}
+	catch(const char* s)
+	{
+		cout << s;
+	}
 	cin >> a;
 }

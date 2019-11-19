@@ -6,7 +6,7 @@ void cluster::doTacts(int tacts)
 		throw "Error";
 	for (int i = 0; i < tacts; i++)
 	{
-		if (rand() % 100 > rand() % 100)
+		if (rand() % 100 > 50 + rand() % 51)
 		{
 			Task temp;
 			temp.setProcessors(processors);
