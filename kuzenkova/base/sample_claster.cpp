@@ -18,6 +18,7 @@ int main()
 		cout << "Enter the number of tact: ";
 		cin >> tact;
 		b.doTacts(tact);
+		cout << "Statistics: ";
 		b.printStatistic();
 	}
 	catch(const char* s)
